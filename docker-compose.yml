@@ -1,0 +1,23 @@
+version: '3'
+services:
+  python:
+    build: ./python
+    container_name: django-sample-python
+    tty: true
+    ports:
+      - "8081:8000"
+    environment:
+      TZ: "Asia/Tokyo"
+    volumes:
+      - ./python/app:/var/www/
+
+  nginx:
+    build: ./nginx
+    ports:
+      - "8080:80"
+    container_name: django-sample-nginx
+    tty: true
+    volumes:
+      - ./nginx/static:/var/www/static
+    environment:
+      TZ: "Asia/Tokyo"
