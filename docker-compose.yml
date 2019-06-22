@@ -4,8 +4,8 @@ services:
     build: ./python
     container_name: django-sample-python
     tty: true
-    ports:
-      - "8081:8000"
+#    ports:
+#      - "8081:8000"
     environment:
       TZ: "Asia/Tokyo"
     volumes:

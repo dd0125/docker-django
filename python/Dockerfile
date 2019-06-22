@@ -40,9 +40,11 @@ RUN django-admin --version
 RUN pip3 install uwsgi
 
 # uwsgi の起動
-# CMD ["uwsgi","--ini","/var/www/uwsgi.ini"]
+CMD ["uwsgi","--ini","/var/www/uwsgi.ini"]
+# CMD ["uwsgi" ,"--http" ,":8000" ,"--wsgi-file" ,"/var/www/sample/sample/test.py"]
+# CMD ["uwsgi" ,"--http" ,":8000" ,"--file" ,"/var/www/sample/sample/wsgi.py"]
 
-WORKDIR /var/www/sample
-RUN pwd
-# python3 
-CMD ["python3", "manage.py", "runserver", "0.0.0.0:8000"]
+# django server の起動
+# WORKDIR /var/www/sample
+# RUN pwd
+# CMD ["python3", "manage.py", "runserver", "0.0.0.0:8000"]
